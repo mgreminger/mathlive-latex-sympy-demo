@@ -89,21 +89,22 @@
     <!-- Step 3: Parse SymPy -->
     <div class="step-card">
         <h2 class="step-title">3. Parse Expression (Python)</h2>
-        <pre><code class="language-python">expr = parse_latex(raw_latex)</code></pre>
+        <pre><code class="language-python"># requires antlr4-python3-runtime
+expr = sympy.parsing.latex.parse_latex(raw_latex)</code></pre>
         <div class="output-box" id="out-raw-sympy">...</div>
     </div>
 
     <!-- Step 4: Simplify -->
     <div class="step-card">
         <h2 class="step-title">4. Simplify Expression (Python)</h2>
-        <pre><code class="language-python">simplified_expr = simplify(expr.doit())</code></pre>
+        <pre><code class="language-python">simplified_expr = sympy.simplify(expr.doit())</code></pre>
         <div class="output-box" id="out-raw-simp-sympy">...</div>
     </div>
 
     <!-- Step 5: Convert back to LaTeX -->
     <div class="step-card">
         <h2 class="step-title">5. Convert to Output LaTeX (Python)</h2>
-        <pre><code class="language-python">final_latex = latex(simplified_expr)</code></pre>
+        <pre><code class="language-python">final_latex = sympy.latex(simplified_expr)</code></pre>
         <div class="output-box" id="out-final-latex">...</div>
     </div>
 
